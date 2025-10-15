@@ -1,215 +1,301 @@
-/* ==================== STYLE UMUM ==================== */
+/* ========== SETUP DASAR ========== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: #1e1e1e;
-  background-color: #f8faff;
+  background: #f5f7ff;
+  color: #222;
   overflow-x: hidden;
+  transition: all 0.4s ease;
 }
 
-/* Smooth fade animasi scroll */
-[data-aos] {
-  transition: all 0.6s ease-in-out;
+/* ========== DARK MODE ========== */
+body.dark-mode {
+  background: #0e0e14;
+  color: #e6e6e6;
 }
 
-/* ==================== HERO SECTION ==================== */
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: radial-gradient(circle at top left, #e3f2fd, #f8f9ff 60%);
-  overflow: hidden;
-  position: relative;
-  padding: 60px 20px;
+body.dark-mode .hero {
+  background: radial-gradient(circle at top left, #0e0e14, #12121c);
 }
 
-/* Efek partikel lembut */
-.hero-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url('https://www.transparenttextures.com/patterns/squairy-light.png');
-  opacity: 0.15;
-  z-index: 0;
+body.dark-mode .btn {
+  background: linear-gradient(135deg, #00d4ff, #007bff);
 }
 
-.hero-container {
+body.dark-mode footer {
+  background: #12121c;
+}
+
+/* ========== TOGGLE MODE ========== */
+.mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.toggle-label {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
+  width: 70px;
+  height: 35px;
+  background: #ddd;
+  border-radius: 40px;
+  padding: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.3s;
+}
+
+.toggle-label::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 50%;
+  top: 2.5px;
+  left: 3px;
+  transition: 0.3s;
+}
+
+#darkToggle {
+  display: none;
+}
+
+#darkToggle:checked + .toggle-label {
+  background: #007bff;
+}
+
+#darkToggle:checked + .toggle-label::after {
+  left: 37px;
+}
+
+.sun, .moon {
+  font-size: 1.2rem;
+  z-index: 2;
+}
+
+/* ========== HERO ========== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top left, #eaf1ff, #f5f8ff 90%);
+  overflow: hidden;
+}
+
+/* BACKGROUND ANIMASI */
+.animated-bg::before, .animated-bg::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 123, 255, 0.15);
+  animation: move 10s infinite alternate ease-in-out;
+}
+
+.animated-bg::before {
+  width: 500px;
+  height: 500px;
+  top: -150px;
+  left: -100px;
+}
+
+.animated-bg::after {
+  width: 600px;
+  height: 600px;
+  bottom: -150px;
+  right: -120px;
+  animation-delay: 2s;
+}
+
+@keyframes move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 60px); }
+}
+
+/* ========== HERO CONTAINER ========== */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
   max-width: 1200px;
-  gap: 70px;
-  z-index: 1;
-  animation: fadeInUp 1.2s ease-out;
+  z-index: 2;
+  position: relative;
+  flex-wrap: wrap;
 }
 
-/* ======== TEKS ======== */
-.hero-text {
+.text-box {
   flex: 1;
+  padding: 20px;
 }
 
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: 700;
+.text-box h1 {
+  font-size: 2.8rem;
   color: #111;
-  line-height: 1.3;
-  letter-spacing: 0.5px;
 }
 
-.hero-text span {
+.text-box span {
   color: #007bff;
-  text-shadow: 0 2px 8px rgba(0, 123, 255, 0.4);
+  text-shadow: 0 0 20px rgba(0, 123, 255, 0.4);
 }
 
-.hero-text p {
+.text-box p {
+  font-size: 1.1rem;
   color: #555;
-  margin-top: 12px;
-  font-size: 1.15rem;
-  font-weight: 400;
+  margin: 10px 0 25px;
 }
 
-.btn-primary {
-  display: inline-block;
-  margin-top: 25px;
+.btn {
   background: linear-gradient(135deg, #007bff, #0056d2);
-  color: #fff;
+  color: white;
   padding: 12px 30px;
   border-radius: 40px;
   text-decoration: none;
   font-weight: 500;
-  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
-  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+  transition: 0.3s ease;
 }
 
-.btn-primary:hover {
-  transform: scale(1.08) translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+.btn:hover {
+  transform: scale(1.07);
 }
 
-/* ======== FOTO PROFIL ======== */
-.hero-image {
+/* ========== FOTO PROFIL ========== */
+.photo-box {
   flex: 1;
-  position: relative;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.image-wrapper {
   position: relative;
-  width: 340px;
-  height: 340px;
-  transition: all 0.5s ease;
 }
 
-.profile-photo {
-  width: 100%;
-  height: 100%;
+.photo {
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
-  border: 5px solid #007bff;
   object-fit: cover;
-  z-index: 2;
+  border: 4px solid rgba(0,123,255,0.4);
+  box-shadow: 0 0 30px rgba(0,123,255,0.3);
+  animation: float 6s ease-in-out infinite;
   position: relative;
-  animation: smoothFloat 5s ease-in-out infinite, glowPulse 4s ease-in-out infinite;
+  z-index: 3;
 }
 
-/* Efek lingkaran bergerak */
-.decor-circle {
+.photo-glow {
   position: absolute;
-  width: 380px;
-  height: 380px;
-  border: 2px dashed #007bff55;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
-  top: -20px;
-  left: -20px;
-  animation: rotateCircle 12s linear infinite;
+  background: radial-gradient(circle, rgba(0,123,255,0.3), transparent 70%);
+  filter: blur(25px);
+  animation: pulse 4s infinite ease-in-out;
 }
 
-@keyframes rotateCircle {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Efek cahaya lembut di sekitar foto */
-@keyframes glowPulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 45px rgba(0, 123, 255, 0.7);
-  }
-}
-
-/* Gerakan lembut ke atas-bawah */
-@keyframes smoothFloat {
+@keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-20px); }
 }
 
-/* Efek muncul dari bawah */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
 }
 
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column-reverse;
-    gap: 35px;
-    text-align: center;
-  }
-
-  .hero-text h1 {
-    font-size: 2rem;
-  }
-
-  .hero-text p {
-    font-size: 1rem;
-  }
-
-  .image-wrapper {
-    width: 220px;
-    height: 220px;
-  }
-
-  .decor-circle {
-    width: 240px;
-    height: 240px;
-  }
-
-  .btn-primary {
-    font-size: 0.9rem;
-    padding: 10px 22px;
-  }
+/* ========== ABOUT ========== */
+.about {
+  text-align: center;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: auto;
 }
 
-/* ==================== ANIMASI TAMBAHAN ==================== */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+.about h2 {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 20px;
 }
 
-@keyframes fadeInRight {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
+.about p {
+  font-size: 1.1rem;
+  color: #555;
 }
 
-@keyframes fadeInLeft {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
+/* ========== SKILLS ========== */
+.skills {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f8f9fb;
+}
+
+.skills h2 {
+  color: #007bff;
+  margin-bottom: 40px;
+}
+
+.skill {
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.skill img {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.bar {
+  height: 10px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.fill {
+  height: 100%;
+  background: linear-gradient(135deg, #007bff, #00c3ff);
+  border-radius: 20px;
+  animation: load 2s ease;
+}
+
+@keyframes load {
+  from { width: 0; }
+  to { width: var(--w); }
+}
+
+.skill span {
+  display: block;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+/* ========== KONTAK ========== */
+.contact {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #0d6efd;
+  color: white;
+  font-size: 0.9rem;
 }
