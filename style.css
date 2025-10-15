@@ -122,42 +122,74 @@ body {
   100% { transform: translate(-60px, 30px) scale(1.3); }
 }
 
-/* ====== SKILL ====== */
 .skills-section {
   position: relative;
   padding: 100px 20px;
-  background: linear-gradient(180deg, #141418, #0e0e10);
+  color: white;
+  text-align: center;
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover no-repeat;
   overflow: hidden;
 }
-.animated-shapes span {
+
+.skills-section .overlay {
   position: absolute;
-  background: #00aaff40;
-  border-radius: 50%;
-  animation: moveParticle 15s infinite linear;
-}
-@keyframes moveParticle {
-  0% { transform: translate(0,0); opacity: 0.2; }
-  50% { transform: translate(100px,50px); opacity: 0.5; }
-  100% { transform: translate(-100px,-50px); opacity: 0.2; }
-}
-.skill-card {
-  background: rgba(255,255,255,0.05);
-  border-radius: 15px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
-  transition: 0.3s;
-}
-.skill-card:hover { transform: translateY(-8px); box-shadow: 0 0 25px rgba(0,123,255,0.3); }
-
-/* ====== CONTACT ====== */
-.contact-section {
-  padding: 80px 20px;
-  background: radial-gradient(circle at center, #007bff20, #0e0e10 70%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 1;
 }
 
-/* ====== RESPONSIVE ====== */
-@media (max-width: 768px) {
-  .hero-container { flex-direction: column; text-align: center; }
-  .photo-wrapper { width: 180px; height: 180px; }
-  .hero-text h1 { font-size: 1.8rem; }
+.skills-section .container {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: auto;
+}
+
+.skill {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.skill p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  overflow: hidden;
+  height: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  border-radius: 50px;
+  transition: width 2s ease-in-out;
+  position: relative;
+}
+
+.progress-bar .percentage {
+  position: absolute;
+  right: 10px;
+  top: -28px;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+  .skill p {
+    font-size: 16px;
+  }
+  .progress {
+    height: 10px;
+  }
 }

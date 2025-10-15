@@ -58,57 +58,59 @@
   </section>
 
   <!-- ====================== SKILL ====================== -->
-  <section id="skill" class="skills-section">
-    <div class="animated-shapes"></div>
-    <div class="container">
-      <h2 class="text-center fw-bold mb-3 text-light" data-aos="fade-up">Skills</h2>
-      <p class="text-center text-light mb-5" data-aos="fade-up" data-aos-delay="150">
-        Saya mendalami beberapa teknologi berikut:
-      </p>
-
-      <div class="row justify-content-center">
-        <div class="col-md-8 mb-4" data-aos="fade-right">
-          <div class="skill-card">
-            <div class="skill-info">
-              <img src="images/logoflutter.jpeg" alt="Flutter" class="skill-icon">
-              <span class="fw-bold">FLUTTER</span>
-            </div>
-            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
-          </div>
-        </div>
-
-        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="100">
-          <div class="skill-card">
-            <div class="skill-info">
-              <img src="images/logolaravel.jpeg" alt="Laravel" class="skill-icon">
-              <span class="fw-bold">LARAVEL</span>
-            </div>
-            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
-          </div>
-        </div>
-
-        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="200">
-          <div class="skill-card">
-            <div class="skill-info">
-              <img src="images/pythonbaru.jpeg" alt="Python" class="skill-icon">
-              <span class="fw-bold">PYTHON</span>
-            </div>
-            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
-          </div>
-        </div>
-
-        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="300">
-          <div class="skill-card">
-            <div class="skill-info">
-              <img src="images/logouiux.jpeg" alt="UI/UX" class="skill-icon">
-              <span class="fw-bold">UI / UX</span>
-            </div>
-            <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
-          </div>
+  <section id="skills" class="skills-section">
+  <div class="overlay"></div>
+  <div class="container">
+    <h2>Skill</h2>
+    <div class="skill">
+      <p>Flutter</p>
+      <div class="progress">
+        <div class="progress-bar" data-percentage="90">
+          <span class="percentage">90%</span>
         </div>
       </div>
     </div>
-  </section>
+
+    <div class="skill">
+      <p>Laravel</p>
+      <div class="progress">
+        <div class="progress-bar" data-percentage="85">
+          <span class="percentage">85%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill">
+      <p>Python</p>
+      <div class="progress">
+        <div class="progress-bar" data-percentage="80">
+          <span class="percentage">80%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Animasi skill bar saat discroll
+  const skillBars = document.querySelectorAll('.progress-bar');
+  const skillSection = document.querySelector('.skills-section');
+
+  function showProgress() {
+    const sectionTop = skillSection.getBoundingClientRect().top;
+    const trigger = window.innerHeight - 150;
+
+    if (sectionTop < trigger) {
+      skillBars.forEach(bar => {
+        const percentage = bar.getAttribute('data-percentage');
+        bar.style.width = percentage + '%';
+      });
+    }
+  }
+
+  window.addEventListener('scroll', showProgress);
+</script>
+
 
   <!-- ====================== HUBUNGI ====================== -->
   <section id="kontak" class="contact-section text-center">
