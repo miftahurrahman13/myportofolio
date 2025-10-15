@@ -1,4 +1,65 @@
-/* ================= HERO IMAGE RESPONSIVE & ANIMASI ================= */
+/* ================= HERO IMAGE & ANIMASI ================= */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafc, #eef3ff);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  max-width: 1100px;
+  gap: 50px;
+  animation: fadeInUp 1.2s ease-out;
+}
+
+/* ======== TEKS ======== */
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  color: #222;
+  line-height: 1.3;
+}
+
+.hero-text span {
+  color: #007bff;
+  font-weight: 700;
+}
+
+.hero-text p {
+  color: #555;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056d2;
+  transform: scale(1.05);
+}
+
+/* ======== FOTO PROFIL ======== */
 .hero-image {
   flex: 1;
   position: relative;
@@ -45,31 +106,59 @@
   }
 }
 
+/* Efek muncul dari bawah */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ================= RESPONSIVE UNTUK HP ================= */
-/* ========== RESPONSIVE MOBILE VIEW ========== */
 @media (max-width: 768px) {
+  .hero-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
   .hero-container {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    gap: 30px;
+    gap: 25px;
   }
 
   .hero-image {
-    order: 1; /* Foto tampil duluan di atas */
+    order: 1;
+    display: flex;
     justify-content: center;
   }
 
-  .hero-text {
-    order: 2; /* Teks tampil di bawah foto */
+  .image-wrapper {
+    width: 200px;
+    height: 200px;
   }
 
-  .image-wrapper {
-    width: 220px;
-    height: 220px;
+  .profile-photo {
+    width: 200px;
+    height: 200px;
+    border: 4px solid #007bff;
+  }
+
+  .hero-text {
+    order: 2;
+    width: 100%;
+    text-align: center;
   }
 
   .hero-text h1 {
     font-size: 1.8rem;
+    margin-top: 15px;
   }
 
   .hero-text p {
@@ -77,9 +166,8 @@
   }
 
   .btn-primary {
-    margin-top: 15px;
-    padding: 8px 20px;
+    margin-top: 12px;
     font-size: 0.9rem;
+    padding: 8px 18px;
   }
 }
-
