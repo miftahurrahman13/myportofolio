@@ -1,61 +1,4 @@
-/* ================= HERO SECTION ================= */
-.hero-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #f9fafc, #eef3ff);
-  overflow: hidden;
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 80%;
-  max-width: 1200px;
-  gap: 50px;
-  animation: fadeInUp 1.2s ease-out;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h1 {
-  font-size: 2.8rem;
-  color: #222;
-  line-height: 1.3;
-}
-
-.hero-text span {
-  color: #007bff;
-  font-weight: 700;
-}
-
-.hero-text p {
-  color: #555;
-  margin-top: 10px;
-  font-size: 1.1rem;
-}
-
-.btn-primary {
-  display: inline-block;
-  margin-top: 20px;
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056d2;
-  transform: scale(1.05);
-}
-
+/* ================= HERO IMAGE RESPONSIVE & ANIMASI ================= */
 .hero-image {
   flex: 1;
   position: relative;
@@ -68,6 +11,7 @@
   position: relative;
   width: 320px;
   height: 320px;
+  transition: all 0.5s ease;
 }
 
 .profile-photo {
@@ -78,56 +22,63 @@
   object-fit: cover;
   z-index: 2;
   position: relative;
-  animation: floatPhoto 4s ease-in-out infinite;
+  animation: smoothFloat 5s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
 }
 
-/* Dekorasi Lingkaran & Titik */
-.decor-circle {
-  position: absolute;
-  width: 380px;
-  height: 380px;
-  border: 2px dashed #007bff;
-  border-radius: 50%;
-  top: -30px;
-  left: -30px;
-  animation: rotateCircle 10s linear infinite;
-}
-
-.decor-dots {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(#007bff 25%, transparent 30%);
-  background-size: 20px 20px;
-  top: -20px;
-  right: -20px;
-  opacity: 0.3;
-  animation: pulseDots 2s infinite alternate;
-}
-
-/* Animasi */
-@keyframes floatPhoto {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-@keyframes rotateCircle {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes pulseDots {
-  from { transform: scale(1); opacity: 0.4; }
-  to { transform: scale(1.2); opacity: 0.8; }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
+/* Efek cahaya lembut di sekitar foto */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.3);
   }
-  to {
-    opacity: 1;
+  50% {
+    box-shadow: 0 0 35px rgba(0, 123, 255, 0.6);
+  }
+}
+
+/* Gerakan lembut ke atas-bawah */
+@keyframes smoothFloat {
+  0%, 100% {
     transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* ================= RESPONSIVE UNTUK HP ================= */
+@media (max-width: 768px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .hero-image {
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  .image-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-photo {
+    border: 4px solid #007bff;
+  }
+
+  .decor-circle {
+    width: 240px;
+    height: 240px;
+    top: -20px;
+    left: -20px;
+  }
+
+  .decor-dots {
+    width: 60px;
+    height: 60px;
+    top: -10px;
+    right: -10px;
   }
 }
