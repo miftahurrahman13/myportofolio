@@ -1,101 +1,135 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio Premium - Miftahur Rahman</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio Miftahur Rahman</title>
+
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-  <!-- =================== TOGGLE MODE =================== -->
-  <div class="mode-toggle">
-    <input type="checkbox" id="darkToggle">
-    <label for="darkToggle" class="toggle-label">
-      <span class="sun">☀️</span>
-      <span class="moon">🌙</span>
-    </label>
-  </div>
-
-  <!-- =================== HERO SECTION =================== -->
-  <section class="hero">
+  <!-- ====================== HERO ====================== -->
+  <section class="hero-section" id="profil">
     <div class="animated-bg"></div>
-    <div class="container">
-      <div class="text-box">
-        <h1>Halo, Saya <span>Miftahur Rahman</span></h1>
+    <div class="shapes">
+      <span class="shape circle"></span>
+      <span class="shape triangle"></span>
+      <span class="shape square"></span>
+    </div>
+
+    <div class="container hero-container">
+      <div class="hero-text" data-aos="fade-right" data-aos-duration="1200">
+        <h1>Selamat Datang, Hellooo Saya <span>Miftahur Rahman</span></h1>
         <p>| Mahasiswa Informatika | Universitas Nurul Jadid |</p>
-        <a href="#tentang" class="btn">Tentang Saya</a>
+        <a href="#tentang" class="btn-primary">Tentang Saya</a>
       </div>
 
-      <div class="photo-box">
-        <div class="photo-glow"></div>
-        <img src="images/profilmif.jpg" alt="Foto Profil" class="photo">
+      <div class="hero-image" data-aos="zoom-in" data-aos-duration="1500">
+        <div class="photo-wrapper">
+          <div class="decor-glow"></div>
+          <div class="decor-ring"></div>
+          <img src="images/profilmif.jpg" alt="Foto Profil" class="photo">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- =================== TENTANG =================== -->
-  <section id="tentang" class="about">
-    <h2>Tentang Saya</h2>
-    <p>
-      Saya adalah mahasiswa Informatika Universitas Nurul Jadid semester 7 yang antusias mempelajari pengembangan web dan data science. 
-      Saya suka mempelajari teknologi baru, meningkatkan keterampilan, dan ingin terus berkembang menjadi seorang profesional di bidang teknologi.
-    </p>
-  </section>
-
-  <!-- =================== SKILLS =================== -->
-  <section class="skills">
-    <h2>Skills</h2>
-
-    <div class="skill">
-      <img src="images/logoflutter.jpeg" alt="Flutter">
-      <div class="bar"><div class="fill" style="width: 40%;"></div></div>
-      <span>Flutter - 40%</span>
-    </div>
-
-    <div class="skill">
-      <img src="images/logolaravel.jpeg" alt="Laravel">
-      <div class="bar"><div class="fill" style="width: 40%;"></div></div>
-      <span>Laravel - 40%</span>
-    </div>
-
-    <div class="skill">
-      <img src="images/pythonbaru.jpeg" alt="Python">
-      <div class="bar"><div class="fill" style="width: 40%;"></div></div>
-      <span>Python - 40%</span>
-    </div>
-
-    <div class="skill">
-      <img src="images/logouiux.jpeg" alt="UI/UX">
-      <div class="bar"><div class="fill" style="width: 60%;"></div></div>
-      <span>UI/UX - 60%</span>
+  <!-- ====================== TENTANG SAYA ====================== -->
+  <section id="tentang" class="about-section">
+    <div class="floating-bg"></div>
+    <div class="container text-center">
+      <h2 class="fw-bold" data-aos="fade-up">Tentang Saya</h2>
+      <p class="about-text" data-aos="fade-up" data-aos-delay="200">
+        Saya adalah seorang mahasiswa Informatika Universitas Nurul Jadid Semester 7 yang memiliki minat besar belajar pengembangan web dan data science.
+        Saya senang belajar teknologi baru dan belajar terus mengasah keterampilan saya di bidang ini agar memiliki kemampuan yang bagus.
+      </p>
     </div>
   </section>
 
-  <!-- =================== KONTAK =================== -->
-  <section class="contact">
-    <h2>Hubungi Saya</h2>
-    <p>Klik tombol di bawah ini untuk menghubungi saya 👇</p>
-    <a href="https://wa.me/6282326587065?text=Halo%20Miftahur,%20saya%20ingin%20menghubungi%20Anda."
-       target="_blank" class="btn btn-whatsapp">💬 WhatsApp</a>
+  <!-- ====================== SKILL ====================== -->
+  <section id="skill" class="skills-section">
+    <div class="animated-shapes"></div>
+    <div class="container">
+      <h2 class="text-center fw-bold mb-3 text-light" data-aos="fade-up">Skills</h2>
+      <p class="text-center text-light mb-5" data-aos="fade-up" data-aos-delay="150">
+        Saya mendalami beberapa teknologi berikut:
+      </p>
+
+      <div class="row justify-content-center">
+        <div class="col-md-8 mb-4" data-aos="fade-right">
+          <div class="skill-card">
+            <div class="skill-info">
+              <img src="images/logoflutter.jpeg" alt="Flutter" class="skill-icon">
+              <span class="fw-bold">FLUTTER</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="100">
+          <div class="skill-card">
+            <div class="skill-info">
+              <img src="images/logolaravel.jpeg" alt="Laravel" class="skill-icon">
+              <span class="fw-bold">LARAVEL</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="200">
+          <div class="skill-card">
+            <div class="skill-info">
+              <img src="images/pythonbaru.jpeg" alt="Python" class="skill-icon">
+              <span class="fw-bold">PYTHON</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 40%"></div></div>
+          </div>
+        </div>
+
+        <div class="col-md-8 mb-4" data-aos="fade-right" data-aos-delay="300">
+          <div class="skill-card">
+            <div class="skill-info">
+              <img src="images/logouiux.jpeg" alt="UI/UX" class="skill-icon">
+              <span class="fw-bold">UI / UX</span>
+            </div>
+            <div class="progress-bar"><div class="progress" style="width: 60%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- =================== FOOTER =================== -->
-  <footer>
-    <p>© <span id="year"></span> Miftahur Rahman | Portofolio Premium</p>
+  <!-- ====================== HUBUNGI ====================== -->
+  <section id="kontak" class="contact-section text-center">
+    <div class="container" data-aos="fade-up">
+      <h2 class="text-light mb-3">Hubungi Saya</h2>
+      <p class="text-light">Klik tombol di bawah ini 👇</p>
+      <a href="https://wa.me/6282326587065?text=Halo%20Miftahur,%20saya%20ingin%20menghubungi%20Anda." target="_blank" class="btn btn-success btn-lg mt-3">Hubungi via WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="text-center py-3 bg-dark text-light">
+    <small>© <span id="year"></span> Mippp</small>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Tahun otomatis
+    AOS.init({ once: true, duration: 1000 });
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Toggle dark mode
-    const toggle = document.getElementById('darkToggle');
-    toggle.addEventListener('change', () => {
-      document.body.classList.toggle('dark-mode');
-    });
   </script>
 </body>
 </html>
