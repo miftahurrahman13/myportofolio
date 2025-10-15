@@ -123,82 +123,129 @@ body {
 }
 
 /* skills */
+/* ===== SKILLS (premium, logo + percentage + animasi) ===== */
 .skills-section {
   position: relative;
   padding: 100px 20px;
-  color: white;
+  color: #fff;
   text-align: center;
-  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475') center/cover no-repeat;
+  background: url('images/skill-bg.jpg') center/cover no-repeat; /* ganti dengan fotomu, atau tetap warna */
   overflow: hidden;
 }
 
 .skills-section .overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.65);
-  z-index: 1;
+  inset: 0;
+  background: rgba(5,8,15,0.6); /* gelapkan agar teks kontras */
+  z-index: 0;
 }
 
 .skills-section .container {
   position: relative;
   z-index: 2;
-  max-width: 800px;
-  margin: auto;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
-.skill {
-  margin-bottom: 35px;
-  text-align: left;
+/* card */
+.skill-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 18px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  transition: transform .32s ease, box-shadow .32s ease;
 }
 
-.skill p {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.skill-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0,160,255,0.08);
+}
+
+/* row */
+.skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* left: icon + name */
+.skill-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  margin-right: 12px;
+}
+
+.skill-name {
+  font-weight: 700;
+  font-size: 1.05rem;
   color: #fff;
-  letter-spacing: 0.5px;
+  letter-spacing: .6px;
 }
 
-.progress {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
+/* skill left block */
+.skill-row .left {
+  display: flex;
+  align-items: center;
+}
+
+/* right: percentage text */
+.skill-percent {
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0,198,255,0.6);
+  font-size: 1rem;
+}
+
+/* progress track */
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+  margin-top: 12px;
   overflow: hidden;
-  height: 14px;
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.15);
 }
 
-.progress-bar {
+/* progress fill - width di-set lewat JS berdasarkan data-percentage */
+.progress-fill {
   height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  border-radius: 50px;
-  transition: width 2s ease-in-out;
-  position: relative;
+  width: 0%;
+  background: linear-gradient(90deg, #00d4ff, #007bff);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,160,255,0.18);
+  transition: width 1.6s cubic-bezier(.2,.9,.25,1);
 }
 
-.progress-bar .percentage {
+/* tambahan: tampilkan nilai persentase di sebelah kanan track (opsional) */
+.progress-fill::after {
+  content: attr(data-percentage) "%";
   position: absolute;
-  right: 10px;
+  right: 12px;
   top: -28px;
-  font-size: 15px;
-  font-weight: bold;
-  color: #ffffff; /* ✅ Warna putih terang */
-  text-shadow: 0 0 8px rgba(0, 198, 255, 0.8); /* ✅ Efek glow biru lembut */
-  opacity: 1;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(0,198,255,0.7);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all .6s ease;
 }
 
-@media (max-width: 600px) {
-  .skill p {
-    font-size: 16px;
-  }
-  .progress {
-    height: 10px;
-  }
-  .progress-bar .percentage {
-    font-size: 13px;
-    top: -24px;
-  }
+/* Setelah fill terisi (JS menambahkan kelas .filled) kita munculkan angka */
+.progress-fill.filled::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* responsive */
+@media (max-width:768px) {
+  .skill-row { flex-direction: row; justify-content: space-between; }
+  .skill-icon { width: 38px; height: 38px; }
+  .skill-name { font-size: 0.98rem; }
+  .skill-percent { font-size: 0.95rem; }
+  .progress-track { height: 10px; margin-top: 10px; }
 }
